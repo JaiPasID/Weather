@@ -2,6 +2,10 @@ package fr.jaipasid.weather;
 
 import androidx.lifecycle.ViewModel;
 
+import java.util.List;
+
+import fr.jaipasid.weather.models.Weather;
+
 public class FetchDataViewModel extends ViewModel {
 
     private WeatherRepository weatherRepository;
@@ -10,7 +14,7 @@ public class FetchDataViewModel extends ViewModel {
         this.weatherRepository = weatherRepository;
     }
 
-    public void getWeather (String myCountry){
-        weatherRepository.FetchData(myCountry);
+    public List<Weather> getWeather(String myCountry){
+        return weatherRepository.FetchData(myCountry);
     }
 }

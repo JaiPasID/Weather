@@ -14,11 +14,11 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
      * Singleton
      * instantiate ViewModelFactory with things inside constructors
      */
-    public static ViewModelFactory getInstance(Context context) {
+    public static ViewModelFactory getInstance() {
 
         if (viewModelFactory == null) {
             synchronized (ViewModelFactory.class) {
-                viewModelFactory = new ViewModelFactory(context);
+                viewModelFactory = new ViewModelFactory();
             }
         }
         return viewModelFactory;
@@ -28,7 +28,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
      * Constructor
      * Instantiate 1 repository
      */
-    private ViewModelFactory(Context context) {
+    private ViewModelFactory() {
 
         weatherRepository = new WeatherRepository(Retrofit.getWeather());
 

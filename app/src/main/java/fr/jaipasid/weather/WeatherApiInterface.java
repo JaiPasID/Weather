@@ -7,12 +7,8 @@ import retrofit2.http.Query;
 
 public interface WeatherApiInterface {
 
-    @GET ("geo/1.0/direct")
-    Call<WeatherApi> getWeather(@Query("city")String city, @Query("limit")String limit, @Query("key") String apiKey);
+    @GET ("/data/2.5/weather")
+    Call<WeatherApi> getWeather(@Query("q")String city, @Query("appid") String apiKey);
 }
 
-/**
- * geo/1.0/direct
- * ?q={city name},
- * &limit={limit}&appid={API key}
- */
+
